@@ -1,5 +1,4 @@
 {{- $index := slice -}}
-
 {{ range .Site.RegularPages }}
   {{ $entry := dict
     "title" .Title
@@ -10,5 +9,4 @@
   }}
   {{ $index = $index | append $entry }}
 {{ end }}
-
 {{ $index | jsonify }}

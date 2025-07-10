@@ -1,8 +1,27 @@
-<h1>{{ .Title }}</h1>
-<img src="{{ .Params.photo }}" alt="{{ .Title }}" width="200" />
-<p><strong>Employee ID:</strong> {{ .Params.employee_id }}</p>
-<p><strong>Subject:</strong> {{ .Params.subject }}</p>
-<p><strong>Experience:</strong> {{ .Params.experience }} years</p>
-<p>{{ .Content }}</p>
+<!DOCTYPE html>
+<html lang="en">
 
-<a href="/teachers/">Back To Teachers Details</a>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>{{ .Title }}</h1>
+    <img src="{{ .Params.photo }}" alt="{{ .Title }}" width="200" />
+    <p><strong>Employee ID:</strong> {{ .Params.employee_id }}</p>
+    <p><strong>Subject:</strong> {{ .Params.subject }}</p>
+    <p><strong>Experience:</strong> {{ .Params.experience }} years</p>
+    <p>{{ .Content }}</p>
+    {{ with .Params.students_tags }}
+    <p><strong>Students:</strong>
+        {{ range . }}
+        <a href="/students/{{ . }}/">{{ . }}</a>
+        {{ end }}
+    </p>
+    {{ end }}
+    <a href="/teachers/">Back To Teachers Details</a>
+</body>
+
+</html>

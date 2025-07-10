@@ -2,6 +2,11 @@ baseURL = "http://example.org/"
 title = "School Portal"
 languageCode = "en-us"
 
+[taxonomies]
+  teacher_tag = "teachers_tags"
+  student_tag = "students_tags"
+
+
 [outputFormats]
   [outputFormats.JSON]
     mediaType = "application/json"
