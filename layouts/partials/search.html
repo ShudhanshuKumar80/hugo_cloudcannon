@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+
+</head>
+
+<body>
+    <input type="text" id="searchBox" placeholder="Search..." />
+    <ul id="results"></ul>
+    <script>
+        let idx;       // Lunr index
+        let documents; // Original documents
+
+        // Load JSON and initialize index
+        fetch("/index.json")
+            .then(response => response.json())
+            .then(data => {
+                documents = data;
+                idx = lunr(function () {
+                    this.ref('permalink');
+                    this.field('title');
+                    this.field('summary');
+                    this.field('content');
+                    data.forEach(doc => this.add(doc));
+                });
+            });
+
+        document.getElementById('searchBox').addEventListener('change', function () {
+            const query = this.value;
+            const results = idx.search(query);
+
+            const resultList = document.getElementById('results');
+            resultList.innerHTML = "";
+
+            results.forEach(result => {
+                const doc = documents.find(d => d.permalink === result.ref);
+                const li = document.createElement('li');
+                li.innerHTML = `<a href="${doc.permalink}">${doc.title}</a>`;
+                resultList.appendChild(li);
+            });
+        });
+    </script>
+
+</body>
+
+</html>
