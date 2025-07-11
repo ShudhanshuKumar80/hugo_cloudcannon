@@ -4,7 +4,8 @@
   "description": "- 🔹 Homepage with portal intro - 🔹 Students and Teachers listing - 🔹 Detail pages for each student/teacher - 🔹 Images, hobbies, and metadata for every profile - 🔹 Modular layouts and partials - 🔹 Clean URL routing (e.g. `/students/rahul/`)",
   "homepage": "https://github.com/ShudhanshuKumar80/hugo_cloudcannon#readme",
   "bugs": {
-    "url": "https://github.com/ShudhanshuKumar80/hugo_cloudcannon/issues"
+    "dev": "hugo server"
+    "build":"hugo server & npx pagefind --site "public"
   },
   "repository": {
     "type": "git",
