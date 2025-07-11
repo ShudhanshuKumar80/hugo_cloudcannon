@@ -1,31 +1,24 @@
 {{- $index := slice -}}
+{{- $home := dict
+  "title" .Site.Home.Title
+  "permalink" .Site.Home.Permalink
+  "content" (.Site.Home.Content | plainify)
+  "type" "homepage"
+  "description" (or .Site.Home.Params.description "")
+-}}
+{{- $index = $index | append $home -}}
 {{ range .Site.RegularPages }}
   {{ $entry := dict
     "title" .Title
     "permalink" .Permalink
     "content" (.Plain | plainify)
     "type" .Section
-    "roll" (or .Params.roll "")
-    "class" (or .Params.class "")
-    "dob" (or .Params.dob "")
-    "hobbies" (delimit (or .Params.hobbies (slice)) ", ")
-    "photo" (or .Params.photo "")
-    "teachers_tags" (delimit (or .Params.teachers_tags (slice)) ", ")
-    "students_tags" (delimit (or .Params.students_tags (slice)) ", ")
-  }},
-  {{ $index = $index | append $entry}}
+    "description" (or .Params.description "")
+  }}
+  {{ $index = $index | append $entry }}
 {{ end }}
-{{- $index := slice -}}
-   {{- $home := dict
-  "title" .Site.Home.Title
-  "permalink" .Site.Home.Permalink
-  "summary" (.Site.Home.Summary | plainify)
-  "content" (.Site.Home.Content | plainify)
-  "type" "homepage"
-  "description" (or .Site.Home.Params.description "")
--}}
-{{- $index = $index | append $home -}}
 {{ $index | jsonify }}
+
 
 
 

@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/lunr/lunr.js"></script>
 </head>
+
 <body>
+    <h1>LunrJS</h1>
     <input type="text" id="searchBox" placeholder="Search..." />
     <ul id="results"></ul>
     <script>
-        let idx;      
-        let documents; 
+        let idx;
+        let documents;
         fetch("/index.json")
             .then(response => response.json())
             .then(data => {
@@ -19,8 +22,14 @@
                 idx = lunr(function () {
                     this.ref('permalink');
                     this.field('title');
-                    this.field('summary');
                     this.field('content');
+                    this.field('roll');
+                    this.field('class');
+                    this.field('dob');
+                    this.field('hobbies');
+                    this.field('teachers_tags');
+                    this.field('students_tags');
+                    this.field('description')
                     data.forEach(doc => this.add(doc));
                 });
             });
@@ -51,4 +60,5 @@
         });
     </script>
 </body>
+
 </html>
