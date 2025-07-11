@@ -1,22 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://unpkg.com/lunr/lunr.js"></script>
-
 </head>
-
 <body>
     <input type="text" id="searchBox" placeholder="Search..." />
     <ul id="results"></ul>
     <script>
-        let idx;       // Lunr index
-        let documents; // Original documents
-
-        // Load JSON and initialize index
+        let idx;      
+        let documents; 
         fetch("/index.json")
             .then(response => response.json())
             .then(data => {
@@ -29,7 +24,6 @@
                     data.forEach(doc => this.add(doc));
                 });
             });
-
         document.getElementById('searchBox').addEventListener('change', function () {
             const query = this.value;
             const results = idx.search(query);
@@ -39,13 +33,22 @@
 
             results.forEach(result => {
                 const doc = documents.find(d => d.permalink === result.ref);
-                const li = document.createElement('li');
-                li.innerHTML = `<a href="${doc.permalink}">${doc.title}</a>`;
-                resultList.appendChild(li);
+                const ul = document.createElement('ul');
+                const li1 = document.createElement('li');
+                li1.innerHTML = `${doc.title}`;
+                const li2 = document.createElement('li');
+                li2.innerHTML = `${doc.summary}`;
+                const li3 = document.createElement('li');
+                li1.innerHTML = `${doc.content}`;
+                const li4 = document.createElement('li');
+                li1.innerHTML = `<a href="${doc.permalink}">${doc.title}</a>`;
+                ul.appendChild(li1);
+                ul.appendChild(li2);
+                ul.appendChild(li3);
+                ul.appendChild(li4);
+                resultList.appendChild(ul);
             });
         });
     </script>
-
 </body>
-
 </html>

@@ -1,0 +1,20 @@
+{
+  "name": "hugo_cloudcannon",
+  "version": "1.0.0",
+  "description": "- 🔹 Homepage with portal intro - 🔹 Students and Teachers listing - 🔹 Detail pages for each student/teacher - 🔹 Images, hobbies, and metadata for every profile - 🔹 Modular layouts and partials - 🔹 Clean URL routing (e.g. `/students/rahul/`)",
+  "homepage": "https://github.com/ShudhanshuKumar80/hugo_cloudcannon#readme",
+  "bugs": {
+    "url": "https://github.com/ShudhanshuKumar80/hugo_cloudcannon/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShudhanshuKumar80/hugo_cloudcannon.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
