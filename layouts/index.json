@@ -3,10 +3,27 @@
   {{ $entry := dict
     "title" .Title
     "permalink" .Permalink
-    "summary" (.Summary | plainify)
     "content" (.Plain | plainify)
     "type" .Section
-  }}
-  {{ $index = $index | append $entry }}
+    "roll" (or .Params.roll "")
+    "class" (or .Params.class "")
+    "dob" (or .Params.dob "")
+    "hobbies" (delimit (or .Params.hobbies (slice)) ", ")
+    "photo" (or .Params.photo "")
+    "teachers_tags" (delimit (or .Params.teachers_tags (slice)) ", ")
+    "students_tags" (delimit (or .Params.students_tags (slice)) ", ")
+  }},
+  {{- $home := dict
+  "title" .Site.Home.Title
+  "permalink" .Site.Home.Permalink
+  "summary" (.Site.Home.Summary | plainify)
+  "content" (.Site.Home.Content | plainify)
+  "type" "homepage"
+  "description" (or .Site.Home.Params.description "")
+  -}}
+  {{ $index = $index | append $entry | append $home }}
 {{ end }}
 {{ $index | jsonify }}
+
+
+
