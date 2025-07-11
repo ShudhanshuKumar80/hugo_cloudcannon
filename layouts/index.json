@@ -13,17 +13,20 @@
     "teachers_tags" (delimit (or .Params.teachers_tags (slice)) ", ")
     "students_tags" (delimit (or .Params.students_tags (slice)) ", ")
   }},
-  {{- $home := dict
+  {{ $index = $index | append $entry}}
+{{ end }}
+{{- $index := slice -}}
+   {{- $home := dict
   "title" .Site.Home.Title
   "permalink" .Site.Home.Permalink
   "summary" (.Site.Home.Summary | plainify)
   "content" (.Site.Home.Content | plainify)
   "type" "homepage"
   "description" (or .Site.Home.Params.description "")
-  -}}
-  {{ $index = $index | append $entry | append $home }}
-{{ end }}
+-}}
+{{- $index = $index | append $home -}}
 {{ $index | jsonify }}
+
 
 
 
