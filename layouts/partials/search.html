@@ -12,11 +12,9 @@
     <h1>LunrJS</h1>
     <input type="text" id="searchBox" placeholder="Search..." />
     <ul style="list-style: none;" id="results"></ul>
-
     <script>
         let idx;
         let documents;
-
         fetch("/index.json")
             .then(response => response.json())
             .then(data => {
@@ -44,27 +42,22 @@
             const query = this.value.trim();
             const resultList = document.getElementById('results');
             resultList.innerHTML = "";
-
             if (!query || !idx) return;
-
             let results = [];
             try {
                 results = idx.search(query + '*');
             } catch (e) {
                 console.error("Search error:", e);
             }
-
             results.forEach(result => {
                 const doc = documents.find(d => d.permalink === result.ref);
                 if (!doc) return;
-
                 const ul = document.createElement('ul');
                 ul.style.listStyle = 'none';
                 ul.style.margin = '10px 0';
                 ul.style.padding = '10px';
                 ul.style.backgroundColor = '#f9f9f9';
                 ul.style.border = '1px solid #ccc';
-
                 ul.innerHTML = `
               <li><a href="${doc.permalink}">${doc.title}</a></li>
               <li>${doc.content || ""}</li>
@@ -80,8 +73,6 @@
             });
         });
     </script>
-
-
 </body>
 
 </html>
