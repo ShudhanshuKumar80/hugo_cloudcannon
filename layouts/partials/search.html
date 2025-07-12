@@ -11,10 +11,12 @@
 <body>
     <h1>LunrJS</h1>
     <input type="text" id="searchBox" placeholder="Search..." />
-    <ul id="results"></ul>
+    <ul style="list-style: none;" id="results"></ul>
+
     <script>
         let idx;
         let documents;
+
         fetch("/index.json")
             .then(response => response.json())
             .then(data => {
@@ -29,36 +31,56 @@
                     this.field('hobbies');
                     this.field('teachers_tags');
                     this.field('students_tags');
-                    this.field('description')
-                    data.forEach(doc => this.add(doc));
+                    this.field('description');
+                    data.forEach(doc => {
+                        doc.teachers_tags = doc.teachers_tags || [];
+                        doc.students_tags = doc.students_tags || [];
+                        doc.description = doc.description || "";
+                        this.add(doc);
+                    });
                 });
             });
-        document.getElementById('searchBox').addEventListener('change', function () {
-            const query = this.value;
-            const results = idx.search(query);
-
+        document.getElementById('searchBox').addEventListener('input', function () {
+            const query = this.value.trim();
             const resultList = document.getElementById('results');
             resultList.innerHTML = "";
 
+            if (!query || !idx) return;
+
+            let results = [];
+            try {
+                results = idx.search(query + '*');  
+            } catch (e) {
+                console.error("Search error:", e);
+            }
+
             results.forEach(result => {
                 const doc = documents.find(d => d.permalink === result.ref);
+                if (!doc) return;
+
                 const ul = document.createElement('ul');
-                const li1 = document.createElement('li');
-                li1.innerHTML = `${doc.title}`;
-                const li2 = document.createElement('li');
-                li2.innerHTML = `${doc.summary}`;
-                const li3 = document.createElement('li');
-                li1.innerHTML = `${doc.content}`;
-                const li4 = document.createElement('li');
-                li1.innerHTML = `<a href="${doc.permalink}">${doc.title}</a>`;
-                ul.appendChild(li1);
-                ul.appendChild(li2);
-                ul.appendChild(li3);
-                ul.appendChild(li4);
+                ul.style.listStyle = 'none';
+                ul.style.margin = '10px 0';
+                ul.style.padding = '10px';
+                ul.style.border = '1px solid #ccc';
+
+                ul.innerHTML = `
+              <li><a href="${doc.permalink}">${doc.title}</a></li>
+              <li>${doc.content || ""}</li>
+              <li>${doc.roll || ""}</li>
+              <li>${doc.class || ""}</li>
+              <li>${doc.dob || ""}</li>
+              <li>${doc.hobbies || ""}</li>
+              <li>${(doc.teachers_tags || []).join(', ')}</li>
+              <li>${(doc.students_tags || []).join(', ')}</li>
+              <li>${doc.description || ""}</li>
+            `;
                 resultList.appendChild(ul);
             });
         });
     </script>
+
+
 </body>
 
 </html>
