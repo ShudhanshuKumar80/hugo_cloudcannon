@@ -1,7 +1,7 @@
 ---
 title: "Hritik Negi"
-roll: "S124"
-class: "7-B"
+roll: "23"
+class: "3"
 dob: "2009-06-01"
 hobbies: ["Art", "Dancing"]
 photo: "/images/students/hritik.jpg"

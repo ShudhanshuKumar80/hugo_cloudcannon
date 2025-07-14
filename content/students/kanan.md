@@ -1,12 +1,12 @@
 ---
-title: "abhijit"
-roll: "1"
-class: "1"
+title: "Kanan"
+roll: "27"
+class: "6"
 dob: "2009-06-01"
 hobbies: ["Art", "Dancing"]
-photo: "/images/students/abhishek.jpg"
+photo: "/images/students/kanan.jpg"
 teachers_tags: ["mr-verma"]
-students_tags: ["abhijit"]
+students_tags: ["kanan"]
 ---
 
-Abhishek Singh is a creative student with a passion for arts and culture.
+Kanan is a creative student with a passion for arts and culture.

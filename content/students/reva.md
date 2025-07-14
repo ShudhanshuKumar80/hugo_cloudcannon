@@ -1,12 +1,11 @@
 ---
-title: "abhijit"
-roll: "1"
-class: "1"
+title: "Reva"
+roll: "36"
+class: "5"
 dob: "2009-06-01"
 hobbies: ["Art", "Dancing"]
-photo: "/images/students/abhishek.jpg"
+photo: "/images/students/reva.jpg"
 teachers_tags: ["mr-verma"]
-students_tags: ["abhijit"]
+students_tags: ["reva"]
 ---
-
-Abhishek Singh is a creative student with a passion for arts and culture.
+Reva is a creative student with a passion for arts and culture.

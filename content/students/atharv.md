@@ -1,12 +1,12 @@
 ---
-title: "abhijit"
-roll: "1"
-class: "1"
+title: "Athrv"
+roll: "16"
+class: "6"
 dob: "2009-06-01"
 hobbies: ["Art", "Dancing"]
-photo: "/images/students/abhishek.jpg"
+photo: "/images/students/athrv.jpg"
 teachers_tags: ["mr-verma"]
-students_tags: ["abhijit"]
+students_tags: ["athrv"]
 ---
 
-Abhishek Singh is a creative student with a passion for arts and culture.
+Athrv is a creative student with a passion for arts and culture.

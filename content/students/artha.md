@@ -1,12 +1,12 @@
 ---
-title: "abhijit"
-roll: "1"
-class: "1"
+title: "Artha"
+roll: "15"
+class: "5"
 dob: "2009-06-01"
 hobbies: ["Art", "Dancing"]
-photo: "/images/students/abhishek.jpg"
+photo: "/images/students/artha.jpg"
 teachers_tags: ["mr-verma"]
-students_tags: ["abhijit"]
+students_tags: ["artha"]
 ---
 
-Abhishek Singh is a creative student with a passion for arts and culture.
+Artha is a creative student with a passion for arts and culture.

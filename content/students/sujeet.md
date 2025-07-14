@@ -1,12 +1,11 @@
 ---
-title: "Abhishek Singh"
-roll: "S124"
-class: "9-B"
+title: "Sujeet"
+roll: "44"
+class: "3"
 dob: "2009-06-01"
 hobbies: ["Art", "Dancing"]
-photo: "/images/students/abhishek.jpg"
+photo: "/images/students/sujeet.jpg"
 teachers_tags: ["mr-verma"]
-students_tags: ["abhishek"]
+students_tags: ["sujeet"]
 ---
-
-Abhishek Singh is a creative student with a passion for arts and culture.
+Sujeet is a creative student with a passion for arts and culture.

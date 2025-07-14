@@ -1,12 +1,12 @@
 ---
-title: "abhijit"
-roll: "1"
-class: "1"
+title: "Ahana"
+roll: "5"
+class: "5"
 dob: "2009-06-01"
 hobbies: ["Art", "Dancing"]
-photo: "/images/students/abhishek.jpg"
+photo: "/images/students/ahana.jpg"
 teachers_tags: ["mr-verma"]
-students_tags: ["abhijit"]
+students_tags: ["ahana"]
 ---
 
-Abhishek Singh is a creative student with a passion for arts and culture.
+Ahana is a creative student with a passion for arts and culture.

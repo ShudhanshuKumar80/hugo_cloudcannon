@@ -1,7 +1,7 @@
 ---
 title: "Aman Shukla"
-roll: "S124"
-class: "11-B"
+roll: "8"
+class: "8"
 dob: "2009-06-01"
 hobbies: ["Art", "Dancing"]
 photo: "/images/students/aman.jpg"

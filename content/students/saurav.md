@@ -1,12 +1,11 @@
 ---
-title: "Abhishek Singh"
-roll: "S124"
-class: "9-B"
+title: "Saurav"
+roll: "39"
+class: "8"
 dob: "2009-06-01"
 hobbies: ["Art", "Dancing"]
-photo: "/images/students/abhishek.jpg"
+photo: "/images/students/saurav.jpg"
 teachers_tags: ["mr-verma"]
-students_tags: ["abhishek"]
+students_tags: ["saurav"]
 ---
-
-Abhishek Singh is a creative student with a passion for arts and culture.
+Saurav is a creative student with a passion for arts and culture.

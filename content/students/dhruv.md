@@ -1,12 +1,12 @@
 ---
-title: "abhijit"
-roll: "1"
-class: "1"
+title: "Dhruv"
+roll: "20"
+class: "10"
 dob: "2009-06-01"
 hobbies: ["Art", "Dancing"]
-photo: "/images/students/abhishek.jpg"
+photo: "/images/students/dhruv.jpg"
 teachers_tags: ["mr-verma"]
-students_tags: ["abhijit"]
+students_tags: ["dhruv"]
 ---
 
-Abhishek Singh is a creative student with a passion for arts and culture.
+Dhruv is a creative student with a passion for arts and culture.

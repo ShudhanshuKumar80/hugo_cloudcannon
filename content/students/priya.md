@@ -1,7 +1,7 @@
 ---
 title: "Priya Mehta"
-roll: "S124"
-class: "10-B"
+roll: "34"
+class: "3"
 dob: "2009-06-01"
 hobbies: ["Art", "Dancing"]
 photo: "/images/students/priya.jpg"

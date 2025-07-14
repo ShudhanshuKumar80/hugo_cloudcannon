@@ -1,12 +1,12 @@
 ---
-title: "abhijit"
-roll: "1"
-class: "1"
+title: "Aditi"
+roll: "3"
+class: "3"
 dob: "2009-06-01"
 hobbies: ["Art", "Dancing"]
-photo: "/images/students/abhishek.jpg"
+photo: "/images/students/aditi.jpg"
 teachers_tags: ["mr-verma"]
-students_tags: ["abhijit"]
+students_tags: ["aditi"]
 ---
 
-Abhishek Singh is a creative student with a passion for arts and culture.
+Aditi is a creative student with a passion for arts and culture.

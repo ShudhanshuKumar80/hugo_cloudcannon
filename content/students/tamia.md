@@ -1,12 +1,12 @@
 ---
-title: "abhijit"
-roll: "1"
-class: "1"
+title: "Tamia"
+roll: "46"
+class: "5"
 dob: "2009-06-01"
 hobbies: ["Art", "Dancing"]
-photo: "/images/students/abhishek.jpg"
+photo: "/images/students/tamia.jpg"
 teachers_tags: ["mr-verma"]
-students_tags: ["abhijit"]
+students_tags: ["tamia"]
 ---
 
-Abhishek Singh is a creative student with a passion for arts and culture.
+Tamia is a creative student with a passion for arts and culture.

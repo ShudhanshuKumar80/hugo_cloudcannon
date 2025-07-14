@@ -1,7 +1,7 @@
 ---
 title: "Rahul Sharma"
-roll: "S123"
-class: "10-A"
+roll: "35"
+class: "4"
 dob: "2009-03-15"
 hobbies: ["Reading", "Cricket"]
 photo: "/images/students/rahul.jpg"
