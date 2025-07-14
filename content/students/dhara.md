@@ -8,5 +8,4 @@ photo: "/images/students/abhishek.jpg"
 teachers_tags: ["mr-verma"]
 students_tags: ["abhijit"]
 ---
-
 Abhishek Singh is a creative student with a passion for arts and culture.
