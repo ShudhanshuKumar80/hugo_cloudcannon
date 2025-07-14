@@ -2,8 +2,13 @@
 <html>
 
 <head>
-  
-  
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="/static/favicon.ico">
+  <title>{{ .Title }}</title>
+  <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+  <script src="/pagefind/pagefind-ui.js"></script>
+
 </head>
 
 <body style="font-family: Arial, sans-serif; margin: 0; padding: 0;">
@@ -14,12 +19,11 @@
   <div class="header">
     {{ partial "header.html" . }}
   </div>
-  
+
   <div>
     <h1>Pagefind</h1>
-    <div id="search"></div>
   </div>
-
+  <div id="search"></div>
   <script>
     window.addEventListener('DOMContentLoaded', () => {
       new PagefindUI({
@@ -32,4 +36,5 @@
     {{ partial "search.html" . }}
   </div>
 </body>
+
 </html>
