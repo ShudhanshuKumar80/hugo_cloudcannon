@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
   <title>{{ .Title }}</title>
-
   <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
   <script src="/pagefind/pagefind-ui.js"></script>
 
@@ -14,7 +13,7 @@
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
+      background: #f7f7f7;
       color: #333;
     }
 
@@ -27,38 +26,50 @@
 
     #search-wrapper {
       display: flex;
-      justify-content: flex-end;
-      padding: 10px 20px;
+      justify-content: center;
+      padding: 15px;
       background-color: #e6e6e6;
     }
 
     #search {
       width: 100%;
       max-width: 400px;
+      background: white;
       border: 1px solid #ccc;
-      padding: 5px;
-      background-color: #fff;
+      padding: 10px;
     }
 
     main {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-      box-sizing: border-box;
+      max-width: 960px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+    }
+
+    .card h2 {
+      margin-top: 0;
+      color: #004080;
+    }
+
+    .card a {
+      color: #0066cc;
+      text-decoration: none;
     }
 
     footer {
       margin-top: 40px;
       padding: 20px;
-      background-color: #eee;
+      background-color: #f0f0f0;
       text-align: center;
+      font-size: 14px;
       border-top: 1px solid #ccc;
-    }
-
-    h1 {
-      text-align: center;
-      margin-top: 20px;
-      color: #004080;
     }
   </style>
 </head>
@@ -73,18 +84,53 @@
   </div>
 
   <main>
-    {{ block "main" . }}{{ end }}
+    <div class="card">
+      <h2>{{ .Title }}</h2>
+
+      {{ with .Params.class }}
+        <p><strong>Class:</strong> {{ . }}</p>
+      {{ end }}
+
+      {{ with .Params.subject }}
+        <p><strong>Subject:</strong> {{ . }}</p>
+      {{ end }}
+
+      {{ with .Params.teacher_tags }}
+        <p><strong>Teacher(s):</strong>
+          {{ range . }}
+            {{ $teacher := site.GetPage (printf "teachers/%s" .) }}
+            <a href="{{ $teacher.RelPermalink }}">{{ $teacher.Title }}</a>
+          {{ end }}
+        </p>
+      {{ end }}
+
+      {{ with .Params.student_tags }}
+        <p><strong>Students:</strong>
+          {{ range . }}
+            {{ $student := site.GetPage (printf "students/%s" .) }}
+            <a href="{{ $student.RelPermalink }}">{{ $student.Title }}</a>
+          {{ end }}
+        </p>
+      {{ end }}
+
+      <p>{{ .Content }}</p>
+    </div>
   </main>
 
   <footer>
     {{ partial "search.html" . }}
+    <p>Powered by Hugo & Pagefind</p>
   </footer>
 
   <script>
-    window.addEventListener('DOMContentLoaded', () => {
+    window.addEventListener("DOMContentLoaded", () => {
       new PagefindUI({
         element: "#search",
         showSubResults: true,
+        translations: {
+          search_placeholder: "Search class, teacher, or student...",
+          zero_results: "No results. Try searching 'Class 1' or 'Mr. Verma'",
+        },
       });
     });
   </script>
