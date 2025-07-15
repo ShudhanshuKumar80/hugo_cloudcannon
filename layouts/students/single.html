@@ -25,7 +25,7 @@
     </p>
     {{ end }}
 
-    <h2>Suggested Pages</h2>
+    <h2>Related Students</h2>
     <ul>
         {{ $current := . }}
         {{ $class := .Params.class }}
@@ -34,14 +34,8 @@
 
         {{ $related := where site.RegularPages "Type" "students" }}
         {{ $related := where $related "Permalink" "ne" $current.Permalink }}
-
-        <!-- Match by class -->
         {{ $related := where $related "Params.class" $class }}
-
-        <!-- Match by at least one teacher -->
         {{ $related = where $related "Params.teachers_tags" "intersect" $teachers }}
-
-        <!-- Optionally: filter by exact DOB (e.g., birthday buddies) -->
         {{/* $related := where $related "Params.dob" $dob */}}
 
         <!-- Loop and display -->
