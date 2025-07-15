@@ -15,7 +15,7 @@
     <p><strong>Date of Birth:</strong> {{ .Params.dob }}</p>
     <p><strong>Hobbies:</strong> {{ delimit .Params.hobbies ", " }}</p>
     <p>{{ .Content }}</p>
-    
+
 
     {{ with .Params.teachers_tags }}
     <p><strong>Teachers:</strong>
@@ -24,6 +24,34 @@
         {{ end }}
     </p>
     {{ end }}
+
+    <h2>Suggested Pages</h2>
+    <ul>
+        {{ $current := . }}
+        {{ $class := .Params.class }}
+        {{ $teachers := .Params.teachers_tags }}
+        {{ $dob := .Params.dob }}
+
+        {{ $related := where site.RegularPages "Type" "students" }}
+        {{ $related := where $related "Permalink" "ne" $current.Permalink }}
+
+        <!-- Match by class -->
+        {{ $related := where $related "Params.class" $class }}
+
+        <!-- Match by at least one teacher -->
+        {{ $related = where $related "Params.teachers_tags" "intersect" $teachers }}
+
+        <!-- Optionally: filter by exact DOB (e.g., birthday buddies) -->
+        {{/* $related := where $related "Params.dob" $dob */}}
+
+        <!-- Loop and display -->
+        {{ range first 5 $related }}
+        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ else }}
+        <li>No suggestions found.</li>
+        {{ end }}
+    </ul>
+
 
     <a href="/students/">Back To Students Details</a>
 </body>
