@@ -30,11 +30,7 @@
 
         {{ $related := where site.RegularPages "Type" "teachers" }}
         {{ $related := where $related "Permalink" "ne" $current.Permalink }}
-
-        <!-- Match same subject -->
         {{ $related := where $related "Params.subject" $subject }}
-
-        <!-- Match at least one common student -->
         {{ $related = where $related "Params.students_tags" "intersect" $students }}
 
         {{ range first 5 $related }}
