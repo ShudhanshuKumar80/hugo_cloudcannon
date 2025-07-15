@@ -1,10 +1,10 @@
 ---
-title: "Mr. Verma"
-subject: "Science"
-employee_id: "T988"
+title: "Mrs. Pihu"
+subject: "English"
+employee_id: "T19"
 experience: 8
-photo: "/images/teachers/verma.jpg"
-teachers_tags: ["mr-verma"]
+photo: "/images/teachers/pihu.jpg"
+teachers_tags: ["mr-pihu"]
 students_tags: ["abhishek", "aman", "rahul"]
 ---
-Mr. Verma is a Science teacher with 8 years of experience.
+Mrs. Pihu is a Science teacher with 8 years of experience.

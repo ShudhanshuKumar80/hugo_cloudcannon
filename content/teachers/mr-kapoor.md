@@ -1,7 +1,7 @@
 ---
 title: "Mrs. Kapoor"
 subject: "Mathematics"
-employee_id: "T987"
+employee_id: "T9"
 experience: 12
 photo: "/images/teachers/kapoor.jpg"
 teachers_tags: ["mrs-kapoor"]
