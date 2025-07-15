@@ -25,24 +25,27 @@
     <h2>Related Teachers</h2>
     <ul>
         {{ $current := . }}
-        {{ $subjects := .Params.subjects }}
+        {{ $subject := .Params.subject }}
         {{ $students := .Params.students_tags }}
 
         {{ $related := where site.RegularPages "Type" "teachers" }}
         {{ $related := where $related "Permalink" "ne" $current.Permalink }}
 
-        <!-- Filter by shared subjects -->
-        {{ $related := where $related "Params.subjects" "intersect" $subjects }}
+        <!-- Match same subject -->
+        {{ $related := where $related "Params.subject" $subject }}
 
-        <!-- Filter further by shared students -->
+        <!-- Match at least one common student -->
         {{ $related = where $related "Params.students_tags" "intersect" $students }}
 
         {{ range first 5 $related }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a> – teaches {{ delimit .Params.subjects ", " }}</li>
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a> — teaches {{ .Params.subject }}
+        </li>
         {{ else }}
         <li>No related teachers found.</li>
         {{ end }}
     </ul>
+
 
 
     <a href="/teachers/">Back To Teachers Details</a>
