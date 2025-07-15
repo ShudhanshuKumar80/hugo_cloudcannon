@@ -35,7 +35,7 @@
 
         {{ range first 5 $related }}
         <li>
-            <a href="{{ .RelPermalink }}">{{ .Title }}</a> — teaches {{ .Params.subject }}
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
         </li>
         {{ else }}
         <li>No related teachers found.</li>
