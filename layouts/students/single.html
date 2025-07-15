@@ -36,9 +36,6 @@
         {{ $related := where $related "Permalink" "ne" $current.Permalink }}
         {{ $related := where $related "Params.class" $class }}
         {{ $related = where $related "Params.teachers_tags" "intersect" $teachers }}
-        {{/* $related := where $related "Params.dob" $dob */}}
-
-        <!-- Loop and display -->
         {{ range first 5 $related }}
         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
         {{ else }}
