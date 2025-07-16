@@ -34,9 +34,9 @@
 
         {{ $related := where site.RegularPages "Type" "students" }}
         {{ $related := where $related "Permalink" "ne" $current.Permalink }}
-        {{ $related := where $related "Params.class" $class }}
+        {{ $related := where $related "" $class }}
         {{ $related = where $related "Params.teachers_tags" "intersect" $teachers }}
-        {{ range first 5 $related }}
+        {{ range first 4 $related }}
         <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
         {{ else }}
         <li>No suggestions found.</li>
@@ -47,4 +47,4 @@
     <a href="/students/">Back To Students Details</a>
 </body>
 
-</html>
+</html>Params.class
