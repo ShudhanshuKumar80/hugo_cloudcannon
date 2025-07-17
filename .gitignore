@@ -1,3 +1,5 @@
 .hugo_build.lock
 public/
 netlify.toml
+.node_modules/
+package-lock.json

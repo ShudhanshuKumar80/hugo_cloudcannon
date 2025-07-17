@@ -7,7 +7,6 @@ hobbies: ["Art", "Dancing"]
 photo: "/images/students/aarna.jpg"
 teachers_tags: ["mr-verma"]
 students_tags: ["aarna"]
-
 ---
 
-Aarna is a creative student with a passion for arts and culture.
+Aarna is a creative student with a passion for arts.
