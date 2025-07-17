@@ -27,24 +27,24 @@
 
     <h2>Related Students</h2>
     <ul>
-        {{ $current := . }}
-        {{ $class := .Params.class }}
         {{ $teachers := .Params.teachers_tags }}
-        {{ $dob := .Params.dob }}
-
-        {{ $related := where site.RegularPages "Type" "students" }}
-        {{ $related := where $related "Permalink" "ne" $current.Permalink }}
-        {{ $related := where $related "" $class }}
+        {{ $related := where .Site.RegularPages "Section" "students" }}
         {{ $related = where $related "Params.teachers_tags" "intersect" $teachers }}
-        {{ range first 4 $related }}
-        <li><a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ $related = where $related "Permalink" "ne" .Permalink }} <!-- to exclude self, just in case -->
+
+        {{ if gt (len $related) 0 }}
+        {{ range first 5 $related }}
+        <li>
+            <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+            – Class {{ .Params.class }} | Roll {{ .Params.roll }}
+        </li>
+        {{ end }}
         {{ else }}
-        <li>No suggestions found.</li>
+        <p>No related students found.</p>
         {{ end }}
     </ul>
-
 
     <a href="/students/">Back To Students Details</a>
 </body>
 
-</html>Params.class
+</html>
